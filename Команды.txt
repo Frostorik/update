@@ -1,0 +1,68 @@
+Действия при создании проекта:
+1. Создание виртуального окружения;
+python -m venv venv
+2. Активация виртуального окружения;
+venv\scripts\activate
+3. Установка библиотеки/пакета Django;
+pip install Django
+4. Создание нового проекта "News";
+django-admin startproject News
+5. Переход в корневую директорию проекта;
+cd News
+6. Создание приложения "News";
+python manage.py startapp News
+7. Добавление в настройки проекта settings.py (пункт INSTALLED_APPS) название приложения;
+'News'
+8. Первоначальный запуск приложения и формирование базы данных (db.sqlite3);
+python manage.py runserver
+9. Создание моделей (описания таблиц);
+10. Объявление методов;
+11. Создание миграции;
+python manage.py makemigrations
+12. Применение миграции;
+python manage.py migrate
+
+
+Работа в консоли Django:
+1. Переход в папку с проектом.
+cd NewsPortal
+2. Открыть консоль Django
+python manage.py shell
+3. Импорт моделей в консоль Django
+from News.models import *
+4. Создание пользователей;
+User.objects.create_user('Сергей')
+User.objects.create_user('Кирилл')
+5. Создать два объекта модели Author, связанные с пользователями;
+Author.objects.create(author=User.objects.get(username='Сергей'))
+Author.objects.create(author=User.objects.get(username='Кирилл'))
+6. Добавить 4 категории;
+Category.objects.create(name_category='Beer Pong')
+Category.objects.create(name_category='Magical Paris Party')
+Category.objects.create(name_category='Potato Skins')
+Category.objects.create(name_category='Mojito Pitcher')
+7. Добавить 2 статьи и 1 новость;
+Post.objects.create(post=Author(pk=1), type_post = article, header_post = 'Проверка связи!', text_post = 'Слышно хорошо.')
+Post.objects.create(post=Author(pk=2), type_post = article, header_post = 'Какую роль играет заголовок в статье.', text_post = 'Заголовок — название текста или любого другого информационного объекта: клипа, инфографики, раздела статьи, рекламного баннера. Заголовок помогает понять, что содержится в этом объекте, о чем будет информация. Обычно заголовок отделен от своего материала и первым привлекает внимание читателя: набран более крупным, жирным и заметным шрифтом, после него оставляют небольшое пространство. Заголовок нужен для двух основных целей. Первая — привлечь внимание, чтобы читатель зашел в материал. Вторая — разделить поток информации, чтобы в нем было легче ориентироваться.')
+Post.objects.create(post=Author(pk=1), type_post = news, header_post = 'Интерес и ожидания', text_post = 'Благодаря заголовку человек решает, интересна ли ему вообще эта тема. Заголовок в паре с иллюстрацией определяют, пойдет ли он читать статью, откроет письмо, кликнет по рекламному баннеру.')
+8. Присвоить им категории (как минимум в одной статье/новости должно быть не меньше 2 категорий).
+PostCategory.objects.create(post_category = Post.objects.get(pk=2), category = Category.objects.get(name_category='Beer Pong'))
+PostCategory.objects.create(post_category = Post.objects.get(pk=2), category = Category.objects.get(name_category='Potato Skins'))
+PostCategory.objects.create(post_category = Post.objects.get(pk=3), category = Category.objects.get(name_category='Beer Pong'))
+PostCategory.objects.create(post_category = Post.objects.get(pk=3), category = Category.objects.get(name_category='Potato Skins'))
+9. Создать 4 комментария;
+Comment.objects.create(comment=Post.objects.get(pk=1), user_comment=User.objects.get(username='Сергей'), text_comment='Полезная запись!')
+Comment.objects.create(comment=Post.objects.get(pk=1), user_comment=User.objects.get(username='Кирилл'), text_comment='Полезная запись xd!')
+Comment.objects.create(comment=Post.objects.get(pk=2), user_comment=User.objects.get(username='Сергей'), text_comment='Полезная запись!')
+Comment.objects.create(comment=Post.objects.get(pk=2), user_comment=User.objects.get(username='Кирилл'), text_comment='Полезная запись xd!')
+10. Применить функции like() и dislike() к статьям/новостям;
+Post.objects.get(pk=1).like()
+Post.objects.get(pk=2).dislike()
+11. Обновить рейтинги пользователей;
+Нет атрибута update_rating, не разобрался в методе.
+12. Вывести username и рейтинг лучшего пользователя;
+Author.objects.all().order_by('-rating_author').values('author', 'rating_author')[0]
+13. Вывести дату добавления, username автора, рейтинг, заголовок и превью лучшей статьи, основываясь на лайках/дислайках к этой статье;
+-
+14. Вывести все комментарии (дата, пользователь, рейтинг, текст) к этой статье.
+Comment.objects.filter(pk=2).values('date_comment', 'user_comment', 'rating_comment', 'text_comment')

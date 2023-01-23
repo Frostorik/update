@@ -1,0 +1,21 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load custom_tags %}
+
+{% block title %}
+Удаление записей
+{% endblock title %}
+
+{% block content %}
+
+<center>
+<h1>Удаление записи</h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Подтверждение удаления записи: "{{ object.header_post }}"?</p>
+    <input type="submit" value="Удалить" />
+</form>
+</center>
+
+{% endblock content %}
