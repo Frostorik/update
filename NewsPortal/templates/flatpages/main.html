@@ -2,4 +2,7 @@
 
 {% block content %}
 <center><h2 style="margin-top: 20px;">Главная страница сайта! Перенаправление пока не используется.</h2></center>
+{% if is_not_author %}
+<button><a href="/upgrade/">Стать автором.</a></button>
+{% endif %}
 {% endblock content %}

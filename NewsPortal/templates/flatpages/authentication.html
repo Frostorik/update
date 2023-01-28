@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+        <title>Авторизация/выход</title>
+    </head>
+    <body>
+        <center><div>
+            <h1><a href="/">Вход/выход из сайта.</a></h1>
+        </div></center>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
