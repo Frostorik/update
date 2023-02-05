@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рассылка оповещения</title>
+</head>
+
+<body>
+<h2>
+    Доброго времени суток.
+    Представляем вашему вниманию новые статьи за неделю.
+</h2>
+<ul>
+    {% for post in posts %}
+    <li><a href="{{link}}{{post.get_absolute_url}}">{{post.title}}</a></li>
+    {% end for %}
+</ul>
+</body>
+
+</html>

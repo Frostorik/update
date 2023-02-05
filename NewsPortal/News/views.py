@@ -1,9 +1,13 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm
 from .filters import PostFilter
+from django.shortcuts import redirect, get_object_or_404, render
+from django.db import models
+from datetime import datetime
 
 
 class PostList(ListView):
@@ -61,3 +65,29 @@ class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'flatpages/news_delete.html'
     success_url = reverse_lazy('news')
+
+
+class CategoryList(ListView):
+    model = Post
+    template_name = 'categories/category_news.html'
+    context_object_name = 'category_news'
+
+    def get_queryset(self):
+        self.category_post = get_object_or_404(Category, id=self.kwargs["pk"])
+        queryset = Post.objects.filter(category_post=self.category_post).order_by("-date_post")
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_not_subscriber"] = self.request.user
+        context["category"] = self.category_post
+        return context
+
+
+@login_required
+def subscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    category.subscribers.add(user)
+    message = "Вы были подписаны на рассылку новостей категории:"
+    return render(request, "categories/subscribe.html", {"category": category, "message": message})

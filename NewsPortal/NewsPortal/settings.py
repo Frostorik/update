@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'News',
+    'News.apps.NewsConfig',
     'django.contrib.sites',
     'django.contrib.flatpages',
     'fpages',
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    "django.core.mail",
 ]
 
 LOGIN_URL = '/accounts/login/'
@@ -91,7 +92,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 WSGI_APPLICATION = 'NewsPortal.wsgi.application'
@@ -139,9 +140,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+SITE_URL = 'http://127.0.0.1:8000'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Настройки исходящей почты
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'Frostorik'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = "Frostorik@yandex.ru"
+
+# Настройка периодических задач
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25
