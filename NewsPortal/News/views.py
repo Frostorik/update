@@ -8,6 +8,9 @@ from .filters import PostFilter
 from django.shortcuts import redirect, get_object_or_404, render
 from django.db import models
 from datetime import datetime
+from django.http import HttpResponse
+from django.views import View
+from .tasks import hello, printer
 
 
 class PostList(ListView):
@@ -91,3 +94,17 @@ def subscribe(request, pk):
     category.subscribers.add(user)
     message = "Вы были подписаны на рассылку новостей категории:"
     return render(request, "categories/subscribe.html", {"category": category, "message": message})
+
+
+# Классы из файла tasks.py
+class IndexView(View):
+    def get(self, request):
+        hello.delay()
+        return HttpResponse('Hello!')
+
+
+class IndexView(View):
+    def get(self, request):
+        printer.delay(10)
+        hello.delay()
+        return HttpResponse('Число!')

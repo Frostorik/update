@@ -5,6 +5,5 @@ class NewsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'News'
 
-# Не подгружается signal
-#   def ready(self):
-#      import signals
+    def ready(self):
+        import News.signals

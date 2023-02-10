@@ -47,9 +47,9 @@ Post.objects.create(post=Author(pk=2), type_post = article, header_post = 'Ка�
 Post.objects.create(post=Author(pk=1), type_post = news, header_post = 'Интерес и ожидания', text_post = 'Благодаря заголовку человек решает, интересна ли ему вообще эта тема. Заголовок в паре с иллюстрацией определяют, пойдет ли он читать статью, откроет письмо, кликнет по рекламному баннеру.')
 8. Присвоить им категории (как минимум в одной статье/новости должно быть не меньше 2 категорий).
 PostCategory.objects.create(post_category = Post.objects.get(pk=2), category = Category.objects.get(name_category='Beer Pong'))
-PostCategory.objects.create(post_category = Post.objects.get(pk=2), category = Category.objects.get(name_category='Potato Skins'))
+PostCategory.objects.create(post_category = Post.objects.get(pk=2), category = Category.objects.get(name_category='Magical Paris Party'))
 PostCategory.objects.create(post_category = Post.objects.get(pk=3), category = Category.objects.get(name_category='Beer Pong'))
-PostCategory.objects.create(post_category = Post.objects.get(pk=3), category = Category.objects.get(name_category='Potato Skins'))
+PostCategory.objects.create(post_category = Post.objects.get(pk=3), category = Category.objects.get(name_category='Mojito Pitcher'))
 9. Создать 4 комментария;
 Comment.objects.create(comment=Post.objects.get(pk=1), user_comment=User.objects.get(username='Сергей'), text_comment='Полезная запись!')
 Comment.objects.create(comment=Post.objects.get(pk=1), user_comment=User.objects.get(username='Кирилл'), text_comment='Полезная запись xd!')

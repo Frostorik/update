@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     "django.core.mail",
+    'django_apscheduler',
 ]
 
 LOGIN_URL = '/accounts/login/'
