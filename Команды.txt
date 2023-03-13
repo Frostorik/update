@@ -66,3 +66,9 @@ Author.objects.all().order_by('-rating_author').values('author', 'rating_author'
 -
 14. Вывести все комментарии (дата, пользователь, рейтинг, текст) к этой статье.
 Comment.objects.filter(pk=2).values('date_comment', 'user_comment', 'rating_comment', 'text_comment')
+
+Запуск Celery на Windows.
+celery -A NewsPortal worker -l info -P solo
+
+Проверка безопасности приложения на основные угрозы.
+python manage.py check --deploy

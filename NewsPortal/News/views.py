@@ -1,3 +1,5 @@
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -43,6 +45,14 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'flatpages/new.html'
     context_object_name = 'new'
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'new-{self.kwargs["pk"]}', None)
+
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'new-{self.kwargs["pk"]}', obj)
+        return obj
 
 
 class PostCreate(LoginRequiredMixin, CreateView):

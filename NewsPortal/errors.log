@@ -1,0 +1,122 @@
+2023-03-13 12:11:47,190 | ERROR | Internal Server Error: /accounts/signup/ | C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\utils\log.py | (<class 'django.contrib.auth.models.Group.DoesNotExist'>, DoesNotExist('Group matching query does not exist.'), <traceback object at 0x00000290758BD540>)
+Traceback (most recent call last):
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\decorators.py", line 20, in wrap
+    resp = function(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 234, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 77, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 207, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\views\generic\base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 105, in post
+    response = self.form_valid(form)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 248, in form_valid
+    self.user = form.save(self.request)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\sign\models.py", line 26, in save
+    basic_group = Group.objects.get(name='common')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\db\models\query.py", line 650, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.Group.DoesNotExist: Group matching query does not exist.
+2023-03-13 12:11:47,192 | ERROR | "POST /accounts/signup/ HTTP/1.1" 500 134979 | C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\servers\basehttp.py | None
+2023-03-13 12:24:19,977 | ERROR | Internal Server Error: /accounts/signup/ | C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\utils\log.py | (<class 'smtplib.SMTPSenderRefused'>, SMTPSenderRefused(503, b'5.5.4 Error: send AUTH command first. 1678699459-JOdoIcgbC4Y1-bUy2oP2A', 'Frostorik@yandex.ru'), <traceback object at 0x000002C164C9CA80>)
+Traceback (most recent call last):
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\decorators.py", line 20, in wrap
+    resp = function(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 234, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 77, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 207, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\views\generic\base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 105, in post
+    response = self.form_valid(form)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\views.py", line 254, in form_valid
+    return complete_signup(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\utils.py", line 186, in complete_signup
+    return perform_login(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\utils.py", line 168, in perform_login
+    response = adapter.pre_login(request, user, **hook_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\adapter.py", line 412, in pre_login
+    send_email_confirmation(request, user, signup=signup, email=email)
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\utils.py", line 319, in send_email_confirmation
+    email_address.send_confirmation(request, signup=signup)
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\models.py", line 59, in send_confirmation
+    confirmation.send(request, signup=signup)
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\models.py", line 166, in send
+    get_adapter(request).send_confirmation_mail(request, self, signup)
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\adapter.py", line 549, in send_confirmation_mail
+    self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\allauth\account\adapter.py", line 140, in send_mail
+    msg.send()
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 131, in send_messages
+    sent = self._send(message)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "C:\Users\Felurica\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (503, b'5.5.4 Error: send AUTH command first. 1678699459-JOdoIcgbC4Y1-bUy2oP2A', 'Frostorik@yandex.ru')
+2023-03-13 12:24:19,980 | ERROR | "POST /accounts/signup/ HTTP/1.1" 500 182349 | C:\Users\Felurica\Documents\Обучение Python\Python проекты\Урок #43 Новостной портал на Django\NewsPortal\venv\Lib\site-packages\django\core\servers\basehttp.py | None

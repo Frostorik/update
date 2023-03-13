@@ -1,9 +1,9 @@
 import os
 from celery import Celery
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'News.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'NewsPortal.settings')
 
-app = Celery('News')
+app = Celery('NewsPortal')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.autodiscover_tasks()
